@@ -115,5 +115,12 @@ PDF available at the fixture path above.
 
 ```powershell
 Set-Location frontend
+npm ci
 npm run dev
 ```
+
+Open <http://localhost:3000> with the backend running and GDPR indexed. The frontend
+uses a same-origin proxy to the existing `/verify` endpoint, with `retrieval_k=8`.
+Optionally set `LEXPROOF_API_URL` in `frontend/.env.local`; the default is
+`http://127.0.0.1:8000`. See [frontend/README.md](frontend/README.md) for production
+builds, browser/accessibility tests, and the live three-verdict demo check.
