@@ -198,6 +198,24 @@ def _prepare_evidence(
     return text
 
 
+def _evidence_candidates(result: Dict) -> List[Dict]:
+    """Keep passage context and also evaluate intact numbered paragraphs."""
+    text = result.get("text") or ""
+    candidates = [result]
+    starts = list(re.finditer(r"(?<!\S)\d+\.(?=\s+[A-Z]|\s*$)", text))
+
+    for start, following in zip(starts, starts[1:]):
+        end = following.start()
+        paragraph = text[start.start():end].strip()
+        body = text[start.end():end].strip()
+        # Require the next paragraph marker: a window can end at a sentence
+        # boundary before a paragraph's qualifications. Keep all its sentences.
+        if body and body.endswith((".", "!", "?")) and paragraph != text:
+            candidates.append({**result, "text": paragraph})
+
+    return candidates
+
+
 def verify_claim(
     claim: str,
     retrieval_k: int = 8,
@@ -209,7 +227,13 @@ def verify_claim(
 
     evaluated = []
 
-    for result in retrieval["results"]:
+    candidates = [
+        candidate
+        for result in retrieval["results"]
+        for candidate in _evidence_candidates(result)
+    ]
+
+    for result in candidates:
         premise = _prepare_evidence(
             result
         )

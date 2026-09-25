@@ -44,6 +44,12 @@ def test_retrieval_finds_expected_article_in_top_three(indexed_client, query, ex
     "claim,expected_verdict,expected_article",
     [
         pytest.param(
+            "I can object to my personal data being used for direct marketing.",
+            "SUPPORTED", "Article 21",
+            id="direct-marketing",
+            marks=pytest.mark.benchmark("Verification", "Direct marketing"),
+        ),
+        pytest.param(
             "A controller must notify the supervisory authority of certain personal data breaches within 72 hours where feasible.",
             "SUPPORTED", "Article 33",
             id="supported",
