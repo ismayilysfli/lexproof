@@ -1,10 +1,20 @@
 ﻿from typing import Dict, List
 
+import json
+import logging
+import os
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+from zipfile import BadZipFile
+
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
 
 MODEL_NAME = "intfloat/multilingual-e5-small"
+CACHE_VERSION = 1  # Bump when passage construction or embedding settings change.
+DEFAULT_INDEX_PATH = Path(__file__).resolve().parents[3] / "data/indexes/retrieval.npz"
+logger = logging.getLogger(__name__)
 
 _model = None
 _embeddings = None
@@ -14,6 +24,110 @@ _entries: List[Dict] = []
 _article_titles: Dict[str, str] = {}
 
 _document_name = None
+
+
+def _index_path() -> Path:
+    return Path(os.environ.get("LEXPROOF_INDEX_PATH", DEFAULT_INDEX_PATH))
+
+
+def _save_index() -> None:
+    path = _index_path()
+    temporary_path = None
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        metadata = {
+            "version": CACHE_VERSION,
+            "model": MODEL_NAME,
+            "document": _document_name,
+            "entries": _entries,
+            "article_titles": {
+                heading: data["title"] for heading, data in _article_titles.items()
+            },
+        }
+        # One atomic file prevents a partial write from replacing a working cache.
+        with NamedTemporaryFile(dir=path.parent, suffix=".npz", delete=False) as stream:
+            temporary_path = Path(stream.name)
+            np.savez_compressed(
+                stream,
+                metadata=np.array(json.dumps(metadata, ensure_ascii=False)),
+                embeddings=_embeddings,
+                # Documents without article headings have an empty title matrix.
+                title_embeddings=_title_embeddings.reshape(
+                    len(_article_titles), _embeddings.shape[1]
+                ),
+            )
+        os.replace(temporary_path, path)
+    except OSError as exc:
+        logger.warning("Unable to save retrieval index to %s: %s", path, exc)
+    finally:
+        if temporary_path is not None:
+            try:
+                temporary_path.unlink(missing_ok=True)
+            except OSError as exc:
+                logger.warning("Unable to remove temporary index %s: %s", temporary_path, exc)
+
+
+def load_cached_index() -> bool:
+    """Restore the last indexed document without loading an embedding model."""
+    global _embeddings, _title_embeddings, _entries, _article_titles, _document_name
+
+    path = _index_path()
+    try:
+        # Metadata is JSON; never deserialize pickled Python objects from disk.
+        with np.load(path, allow_pickle=False) as cached:
+            metadata = json.loads(str(cached["metadata"].item()))
+            embeddings = cached["embeddings"]
+            title_embeddings = cached["title_embeddings"]
+        if metadata["version"] != CACHE_VERSION or metadata["model"] != MODEL_NAME:
+            raise ValueError("Index version or embedding model has changed; rebuild the index.")
+        entries = metadata["entries"]
+        titles = metadata["article_titles"]
+        document = metadata["document"]
+        if not isinstance(document, str) or not isinstance(entries, list) or not entries:
+            raise ValueError("Invalid index metadata.")
+        if not isinstance(titles, dict) or not all(isinstance(title, str) for title in titles.values()):
+            raise ValueError("Invalid article titles.")
+        required_fields = {"document", "heading", "title", "chapter", "section",
+                           "page_start", "page_end", "segment_number", "text"}
+        for entry in entries:
+            if (
+                not isinstance(entry, dict)
+                or not required_fields.issubset(entry)
+                or entry["document"] != document
+                or not isinstance(entry["text"], str)
+                or not isinstance(entry["title"], str)
+                or (entry["heading"] is not None and entry["heading"] not in titles)
+            ):
+                raise ValueError("Invalid passage metadata.")
+        if (
+            embeddings.ndim != 2
+            or embeddings.shape[0] != len(entries)
+            or embeddings.shape[1] != 384  # multilingual-e5-small output dimension
+            or title_embeddings.shape != (len(titles), 384)
+            or not np.issubdtype(embeddings.dtype, np.floating)
+            or not np.issubdtype(title_embeddings.dtype, np.floating)
+            or not np.isfinite(embeddings).all()
+            or not np.isfinite(title_embeddings).all()
+        ):
+            raise ValueError("Invalid index embedding arrays.")
+        article_titles = {
+            heading: {"title": title, "embedding": title_embeddings[index]}
+            for index, (heading, title) in enumerate(titles.items())
+        }
+    except FileNotFoundError:
+        return False
+    except (OSError, ValueError, KeyError, TypeError, AttributeError, EOFError, BadZipFile) as exc:
+        logger.warning("Unable to load retrieval index from %s: %s", path, exc)
+        return False
+
+    # Publish only after the complete cache has passed validation.
+    _entries = entries
+    _embeddings = embeddings
+    _title_embeddings = title_embeddings
+    _article_titles = article_titles
+    _document_name = document
+    logger.info("Restored retrieval index for %s from %s", document, path)
+    return True
 
 
 def _get_model():
@@ -195,6 +309,7 @@ def index_chunks(
 
     _title_embeddings = title_embeddings
     _document_name = document_name
+    _save_index()
 
     return {
         "document": document_name,
@@ -324,3 +439,56 @@ def search_index(
         "results": results,
     }
 
+
+
+def search_passages(
+    query: str,
+    top_k: int = 8,
+) -> Dict:
+    if _embeddings is None or not _entries:
+        raise RuntimeError(
+            "No document has been indexed yet."
+        )
+
+    model = _get_model()
+
+    query_embedding = model.encode(
+        [f"query: {query}"],
+        convert_to_numpy=True,
+        normalize_embeddings=True,
+    )[0]
+
+    scores = np.dot(
+        _embeddings,
+        query_embedding,
+    )
+
+    result_count = min(
+        top_k,
+        len(_entries),
+    )
+
+    ranked_indexes = np.argsort(
+        -scores
+    )[:result_count]
+
+    results = []
+
+    for index in ranked_indexes:
+        index = int(index)
+        entry = _entries[index]
+
+        results.append({
+            "retrieval_score": round(
+                float(scores[index]),
+                4,
+            ),
+            **entry,
+        })
+
+    return {
+        "query": query,
+        "document": _document_name,
+        "result_count": len(results),
+        "results": results,
+    }

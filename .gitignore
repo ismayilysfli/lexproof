@@ -18,6 +18,11 @@ Thumbs.db
 # Data / generated indexes
 data/indexes/
 data/temp/
+.pytest_cache/
+.cache/
+.huggingface/
+backend/.cache/
+backend/.huggingface/
 
 # IDE
 .vscode/
