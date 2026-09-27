@@ -1,0 +1,151 @@
+{
+  "claim": "A controller must notify the supervisory authority of certain personal data breaches within 72 hours where feasible.",
+  "verdict": "SUPPORTED",
+  "confidence": 0.7538,
+  "document": "gdpr.pdf",
+  "verification_model": "MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli",
+  "primary_evidence": {
+    "document": "gdpr.pdf",
+    "heading": "Article 33",
+    "title": "Article 33: Notification of a personal data breach to the supervisory authority",
+    "chapter": "CHAPTER IV",
+    "section": "Section 2",
+    "page_start": 52,
+    "page_end": 52,
+    "text": "Article 33 Notification of a personal data breach to the supervisory authority 1. In the case of a personal data breach, the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority competent in accordance with Article 55, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons. Where the notification to the supervisory authority is not made within 72 hours, it shall be accompanied by reasons for the delay. 2. The processor shall notify the controller without undue delay after becoming aware of a personal data breach. 3. The notification referred to in paragraph 1 shall at least: (a) describe the nature of the personal data breach including where possible, the categories and approximate number of data subjects concerned and the categories and approximate number of personal data records concerned; (b) communicate the name and contact details of the data protection officer or other contact point where more information can be obtained; (c) describe the likely consequences of the personal data breach; (d) describe the measures taken or proposed to be taken by the controller to address the personal data breach, including, where appropriate, measures to mitigate its possible adverse effects. 4.",
+    "retrieval_score": 0.9051,
+    "nli": {
+      "entailment": 0.7797,
+      "neutral": 0.139,
+      "contradiction": 0.0813
+    },
+    "heuristics": {
+      "time_conflict": false,
+      "overbroad_claim": false,
+      "overbroad_conflict": false
+    }
+  },
+  "evidence": [
+    {
+      "retrieval_score": 0.9051,
+      "document": "gdpr.pdf",
+      "heading": "Article 33",
+      "title": "Article 33: Notification of a personal data breach to the supervisory authority",
+      "chapter": "CHAPTER IV",
+      "section": "Section 2",
+      "page_start": 52,
+      "page_end": 52,
+      "segment_number": 1,
+      "text": "Article 33 Notification of a personal data breach to the supervisory authority 1. In the case of a personal data breach, the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority competent in accordance with Article 55, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons. Where the notification to the supervisory authority is not made within 72 hours, it shall be accompanied by reasons for the delay. 2. The processor shall notify the controller without undue delay after becoming aware of a personal data breach. 3. The notification referred to in paragraph 1 shall at least: (a) describe the nature of the personal data breach including where possible, the categories and approximate number of data subjects concerned and the categories and approximate number of personal data records concerned; (b) communicate the name and contact details of the data protection officer or other contact point where more information can be obtained; (c) describe the likely consequences of the personal data breach; (d) describe the measures taken or proposed to be taken by the controller to address the personal data breach, including, where appropriate, measures to mitigate its possible adverse effects. 4.",
+      "nli": {
+        "entailment": 0.7797,
+        "neutral": 0.139,
+        "contradiction": 0.0813
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.7538,
+      "contradiction_score": 0.0786
+    },
+    {
+      "retrieval_score": 0.8646,
+      "document": "gdpr.pdf",
+      "heading": "Article 14",
+      "title": "Article 14: Information to be provided where personal data have not been obtained from the data subject",
+      "chapter": "CHAPTER III",
+      "section": "Section 2",
+      "page_start": 41,
+      "page_end": 42,
+      "segment_number": 3,
+      "text": "int with a supervisory authority; (f) from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; (g) the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject. 3. The controller shall provide the information referred to in paragraphs 1 and 2: (a) within a reasonable period after obtaining the personal data, but at the latest within one month, having regard to the specific circumstances in which the personal data are processed; (b) if the personal data are to be used for communication with the data subject, at the latest at the time of the first communication to that data subject; or (c) if a disclosure to another recipient is envisaged, at the latest when the personal data are first disclosed. 4. Where the controller intends to further process the personal data for a purpose other than that for which the personal data were obtained, the controller shall provide the data subject prior to that further processing with information on that other purpose and with any relevant further information as referred to in paragraph 2. 5.",
+      "nli": {
+        "entailment": 0.1965,
+        "neutral": 0.4578,
+        "contradiction": 0.3457
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.1872,
+      "contradiction_score": 0.3293
+    },
+    {
+      "retrieval_score": 0.8565,
+      "document": "gdpr.pdf",
+      "heading": "Article 36",
+      "title": "Article 36: Prior consultation",
+      "chapter": "CHAPTER IV",
+      "section": "Section 3",
+      "page_start": 54,
+      "page_end": 55,
+      "segment_number": 1,
+      "text": "Article 36 Prior consultation 1. The controller shall consult the supervisory authority prior to processing where a data protection impact assessment under Article 35 indicates that the processing would result in a high risk in the absence of measures taken by the controller to mitigate the risk. 2. Where the supervisory authority is of the opinion that the intended processing referred to in paragraph 1 would infringe this Regulation, in particular where the controller has insufficiently identified or mitigated the risk, the supervisory authority shall, within period of up to eight weeks of receipt of the request for consultation, provide written advice to the controller and, where applicable to the processor, and may use any of its powers referred to in Article 58. That period may be extended by six weeks, taking into account the complexity of the intended processing. The supervisory authority shall inform the controller and, where applicable, the processor, of any such extension within one month of receipt of the request for consultation together with the reasons for the delay. Those periods may be suspended until the supervisory authority has obtained information it has requested for the purposes of the consultation. 3.",
+      "nli": {
+        "entailment": 0.1129,
+        "neutral": 0.5596,
+        "contradiction": 0.3275
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.1072,
+      "contradiction_score": 0.311
+    },
+    {
+      "retrieval_score": 0.8566,
+      "document": "gdpr.pdf",
+      "heading": "Article 42",
+      "title": "Article 42: Certification",
+      "chapter": "CHAPTER IV",
+      "section": "Section 5",
+      "page_start": 58,
+      "page_end": 59,
+      "segment_number": 3,
+      "text": "to in Article 43, or where applicable, the competent supervisory authority, with all information and access to its processing activities which are necessary to conduct the certification procedure. 7. Certification shall be issued to a controller or processor for a maximum period of three years and may be renewed, under the same conditions, provided that the relevant requirements continue to be met. Certification shall be withdrawn, as applicable, by the certification bodies referred to in Article 43 or by the competent supervisory authority where the requirements for the certification are not or are no longer met. 8. The Board shall collate all certification mechanisms and data protection seals and marks in a register and shall make them publicly available by any appropriate means.",
+      "nli": {
+        "entailment": 0.0079,
+        "neutral": 0.7026,
+        "contradiction": 0.2895
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0075,
+      "contradiction_score": 0.2749
+    },
+    {
+      "retrieval_score": 0.8494,
+      "document": "gdpr.pdf",
+      "heading": "Article 57",
+      "title": "Article 57: Tasks",
+      "chapter": "CHAPTER VI",
+      "section": "Section 2",
+      "page_start": 68,
+      "page_end": 69,
+      "segment_number": 4,
+      "text": "ard; (u) keep internal records of infringements of this Regulation and of measures taken in accordance with Article 58(2); and (v) fulfil any other tasks related to the protection of personal data. 2. Each supervisory authority shall facilitate the submission of complaints referred to in point (f) of paragraph 1 by measures such as a complaint submission form which can also be completed electronically, without excluding other means of communication. 3. The performance of the tasks of each supervisory authority shall be free of charge for the data subject and, where applicable, for the data protection officer. 4. Where requests are manifestly unfounded or excessive, in particular because of their repetitive character, the supervisory authority may charge a reasonable fee based on administrative costs, or refuse to act on the request. The supervisory authority shall bear the burden of demonstrating the manifestly unfounded or excessive character of the request.",
+      "nli": {
+        "entailment": 0.0353,
+        "neutral": 0.7883,
+        "contradiction": 0.1765
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0334,
+      "contradiction_score": 0.1672
+    }
+  ],
+  "notice": "Automated evidence analysis. Not legal advice."
+}

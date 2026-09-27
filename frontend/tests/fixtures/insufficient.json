@@ -1,0 +1,151 @@
+{
+  "claim": "Every company must give customers a free laptop after a personal data breach.",
+  "verdict": "INSUFFICIENT_EVIDENCE",
+  "confidence": 0.7511,
+  "document": "gdpr.pdf",
+  "verification_model": "MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli",
+  "primary_evidence": {
+    "document": "gdpr.pdf",
+    "heading": "Article 33",
+    "title": "Article 33: Notification of a personal data breach to the supervisory authority",
+    "chapter": "CHAPTER IV",
+    "section": "Section 2",
+    "page_start": 52,
+    "page_end": 52,
+    "text": "each; (d) describe the measures taken or proposed to be taken by the controller to address the personal data breach, including, where appropriate, measures to mitigate its possible adverse effects. 4. Where, and in so far as, it is not possible to provide the information at the same time, the information may be provided in phases without undue further delay. 5. The controller shall document any personal data breaches, comprising the facts relating to the personal data breach, its effects and the remedial action taken. That documentation shall enable the supervisory authority to verify compliance with this Article.",
+    "retrieval_score": 0.8272,
+    "nli": {
+      "entailment": 0.0068,
+      "neutral": 0.7994,
+      "contradiction": 0.1938
+    },
+    "heuristics": {
+      "time_conflict": false,
+      "overbroad_claim": false,
+      "overbroad_conflict": false
+    }
+  },
+  "evidence": [
+    {
+      "retrieval_score": 0.823,
+      "document": "gdpr.pdf",
+      "heading": "Article 34",
+      "title": "Article 34: Communication of a personal data breach to the data subject",
+      "chapter": "CHAPTER IV",
+      "section": "Section 2",
+      "page_start": 52,
+      "page_end": 53,
+      "segment_number": 1,
+      "text": "Article 34 Communication of a personal data breach to the data subject 1. When the personal data breach is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall communicate the personal data breach to the data subject without undue delay. 4.5.2016 L 119/52 Official Journal of the European Union EN 2. The communication to the data subject referred to in paragraph 1 of this Article shall describe in clear and plain language the nature of the personal data breach and contain at least the information and measures referred to in points (b), (c) and (d) of Article 33(3). 3. The communication to the data subject referred to in paragraph 1 shall not be required if any of the following conditions are met: (a) the controller has implemented appropriate technical and organisational protection measures, and those measures were applied to the personal data affected by the personal data breach, in particular those that render the personal data unintelligible to any person who is not authorised to access it, such as encryption; (b) the controller has taken subsequent measures which ensure that the high risk to the rights and freedoms of data subjects referred to in paragraph 1 is no longer likely to materialise; (c) it would involve disproportionate effort.",
+      "nli": {
+        "entailment": 0.0126,
+        "neutral": 0.4538,
+        "contradiction": 0.5336
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0118,
+      "contradiction_score": 0.5006
+    },
+    {
+      "retrieval_score": 0.8146,
+      "document": "gdpr.pdf",
+      "heading": "Article 6",
+      "title": "Article 6: Lawfulness of processing",
+      "chapter": "CHAPTER II",
+      "section": null,
+      "page_start": 36,
+      "page_end": 37,
+      "segment_number": 5,
+      "text": "e processed, pursuant to Article 10; (d) the possible consequences of the intended further processing for data subjects; (e) the existence of appropriate safeguards, which may include encryption or pseudonymisation.",
+      "nli": {
+        "entailment": 0.0013,
+        "neutral": 0.484,
+        "contradiction": 0.5147
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0012,
+      "contradiction_score": 0.4813
+    },
+    {
+      "retrieval_score": 0.8247,
+      "document": "gdpr.pdf",
+      "heading": "Article 70",
+      "title": "Article 70: Tasks of the Board",
+      "chapter": "CHAPTER VII",
+      "section": "Section 3",
+      "page_start": 76,
+      "page_end": 78,
+      "segment_number": 3,
+      "text": "h point (e) of this paragraph as to the circumstances in which a personal data breach is likely to result in a high risk to the rights and freedoms of the natural persons referred to in Article 34(1). (i) issue guidelines, recommendations and best practices in accordance with point (e) of this paragraph for the purpose of further specifying the criteria and requirements for personal data transfers based on binding corporate rules adhered to by controllers and binding corporate rules adhered to by processors and on further necessary requirements to ensure the protection of personal data of the data subjects concerned referred to in Article 47; (j) issue guidelines, recommendations and best practices in accordance with point (e) of this paragraph for the purpose of further specifying the criteria and requirements for the personal data transfers on the basis of Article 49(1); (k) draw up guidelines for supervisory authorities concerning the application of measures referred to in Article 58(1), (2) and (3) and the setting of administrative fines pursuant to Article 83; (l) review the practical application of the guidelines, recommendations and best practices referred to in points (e) and (f); (m) issue guidelines, recommendations and best practices in accordance with point (e) of this paragraph for establishing common procedures for reporting by natural persons of infringements of",
+      "nli": {
+        "entailment": 0.0111,
+        "neutral": 0.6009,
+        "contradiction": 0.388
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0104,
+      "contradiction_score": 0.3642
+    },
+    {
+      "retrieval_score": 0.8127,
+      "document": "gdpr.pdf",
+      "heading": "Article 58",
+      "title": "Article 58: Powers",
+      "chapter": "CHAPTER VI",
+      "section": "Section 2",
+      "page_start": 69,
+      "page_end": 70,
+      "segment_number": 2,
+      "text": "f its tasks; (f) to obtain access to any premises of the controller and the processor, including to any data processing equipment and means, in accordance with Union or Member State procedural law. 2. Each supervisory authority shall have all of the following corrective powers: (a) to issue warnings to a controller or processor that intended processing operations are likely to infringe provisions of this Regulation; (b) to issue reprimands to a controller or a processor where processing operations have infringed provisions of this Regulation; (c) to order the controller or the processor to comply with the data subject's requests to exercise his or her rights pursuant to this Regulation; 4.5.2016 L 119/69 Official Journal of the European Union EN (d) to order the controller or processor to bring processing operations into compliance with the provisions of this Regulation, where appropriate, in a specified manner and within a specified period; (e) to order the controller to communicate a personal data breach to the data subject; (f) to impose a temporary or definitive limitation including a ban on processing; (g) to order the rectification or erasure of personal data or restriction of processing pursuant to Articles 16, 17 and 18 and the notification of such actions to recipients to whom the personal data have been disclosed pursuant to Article 17(2) and Article 19; (h) to withdr",
+      "nli": {
+        "entailment": 0.1001,
+        "neutral": 0.5231,
+        "contradiction": 0.3768
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0936,
+      "contradiction_score": 0.3521
+    },
+    {
+      "retrieval_score": 0.8194,
+      "document": "gdpr.pdf",
+      "heading": "Article 15",
+      "title": "Article 15: Right of access by the data subject",
+      "chapter": "CHAPTER III",
+      "section": "Section 2",
+      "page_start": 43,
+      "page_end": 43,
+      "segment_number": 2,
+      "text": "icle 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject. 2. Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer. 3. The controller shall provide a copy of the personal data undergoing processing. For any further copies requested by the data subject, the controller may charge a reasonable fee based on administrative costs. Where the data subject makes the request by electronic means, and unless otherwise requested by the data subject, the information shall be provided in a commonly used electronic form. 4. The right to obtain a copy referred to in paragraph 3 shall not adversely affect the rights and freedoms of others. Rectification and erasure",
+      "nli": {
+        "entailment": 0.0164,
+        "neutral": 0.619,
+        "contradiction": 0.3645
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": true,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0154,
+      "contradiction_score": 0.3415
+    }
+  ],
+  "notice": "Automated evidence analysis. Not legal advice."
+}

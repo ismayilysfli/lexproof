@@ -1,0 +1,151 @@
+{
+  "claim": "A controller must report a personal data breach within 24 hours.",
+  "verdict": "CONTRADICTED",
+  "confidence": 0.8806,
+  "document": "gdpr.pdf",
+  "verification_model": "MoritzLaurer/multilingual-MiniLMv2-L6-mnli-xnli",
+  "primary_evidence": {
+    "document": "gdpr.pdf",
+    "heading": "Article 33",
+    "title": "Article 33: Notification of a personal data breach to the supervisory authority",
+    "chapter": "CHAPTER IV",
+    "section": "Section 2",
+    "page_start": 52,
+    "page_end": 52,
+    "text": "Article 33 Notification of a personal data breach to the supervisory authority 1. In the case of a personal data breach, the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority competent in accordance with Article 55, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons. Where the notification to the supervisory authority is not made within 72 hours, it shall be accompanied by reasons for the delay. 2. The processor shall notify the controller without undue delay after becoming aware of a personal data breach. 3. The notification referred to in paragraph 1 shall at least: (a) describe the nature of the personal data breach including where possible, the categories and approximate number of data subjects concerned and the categories and approximate number of personal data records concerned; (b) communicate the name and contact details of the data protection officer or other contact point where more information can be obtained; (c) describe the likely consequences of the personal data breach; (d) describe the measures taken or proposed to be taken by the controller to address the personal data breach, including, where appropriate, measures to mitigate its possible adverse effects. 4.",
+    "retrieval_score": 0.8775,
+    "nli": {
+      "entailment": 0.08,
+      "neutral": 0.3303,
+      "contradiction": 0.92
+    },
+    "heuristics": {
+      "time_conflict": true,
+      "overbroad_claim": false,
+      "overbroad_conflict": false
+    }
+  },
+  "evidence": [
+    {
+      "retrieval_score": 0.8775,
+      "document": "gdpr.pdf",
+      "heading": "Article 33",
+      "title": "Article 33: Notification of a personal data breach to the supervisory authority",
+      "chapter": "CHAPTER IV",
+      "section": "Section 2",
+      "page_start": 52,
+      "page_end": 52,
+      "segment_number": 1,
+      "text": "Article 33 Notification of a personal data breach to the supervisory authority 1. In the case of a personal data breach, the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority competent in accordance with Article 55, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons. Where the notification to the supervisory authority is not made within 72 hours, it shall be accompanied by reasons for the delay. 2. The processor shall notify the controller without undue delay after becoming aware of a personal data breach. 3. The notification referred to in paragraph 1 shall at least: (a) describe the nature of the personal data breach including where possible, the categories and approximate number of data subjects concerned and the categories and approximate number of personal data records concerned; (b) communicate the name and contact details of the data protection officer or other contact point where more information can be obtained; (c) describe the likely consequences of the personal data breach; (d) describe the measures taken or proposed to be taken by the controller to address the personal data breach, including, where appropriate, measures to mitigate its possible adverse effects. 4.",
+      "nli": {
+        "entailment": 0.08,
+        "neutral": 0.3303,
+        "contradiction": 0.92
+      },
+      "heuristics": {
+        "time_conflict": true,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0766,
+      "contradiction_score": 0.8806
+    },
+    {
+      "retrieval_score": 0.8484,
+      "document": "gdpr.pdf",
+      "heading": "Article 36",
+      "title": "Article 36: Prior consultation",
+      "chapter": "CHAPTER IV",
+      "section": "Section 3",
+      "page_start": 54,
+      "page_end": 55,
+      "segment_number": 1,
+      "text": "Article 36 Prior consultation 1. The controller shall consult the supervisory authority prior to processing where a data protection impact assessment under Article 35 indicates that the processing would result in a high risk in the absence of measures taken by the controller to mitigate the risk. 2. Where the supervisory authority is of the opinion that the intended processing referred to in paragraph 1 would infringe this Regulation, in particular where the controller has insufficiently identified or mitigated the risk, the supervisory authority shall, within period of up to eight weeks of receipt of the request for consultation, provide written advice to the controller and, where applicable to the processor, and may use any of its powers referred to in Article 58. That period may be extended by six weeks, taking into account the complexity of the intended processing. The supervisory authority shall inform the controller and, where applicable, the processor, of any such extension within one month of receipt of the request for consultation together with the reasons for the delay. Those periods may be suspended until the supervisory authority has obtained information it has requested for the purposes of the consultation. 3.",
+      "nli": {
+        "entailment": 0.0954,
+        "neutral": 0.3927,
+        "contradiction": 0.5119
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0904,
+      "contradiction_score": 0.4847
+    },
+    {
+      "retrieval_score": 0.853,
+      "document": "gdpr.pdf",
+      "heading": "Article 34",
+      "title": "Article 34: Communication of a personal data breach to the data subject",
+      "chapter": "CHAPTER IV",
+      "section": "Section 2",
+      "page_start": 52,
+      "page_end": 53,
+      "segment_number": 1,
+      "text": "Article 34 Communication of a personal data breach to the data subject 1. When the personal data breach is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall communicate the personal data breach to the data subject without undue delay. 4.5.2016 L 119/52 Official Journal of the European Union EN 2. The communication to the data subject referred to in paragraph 1 of this Article shall describe in clear and plain language the nature of the personal data breach and contain at least the information and measures referred to in points (b), (c) and (d) of Article 33(3). 3. The communication to the data subject referred to in paragraph 1 shall not be required if any of the following conditions are met: (a) the controller has implemented appropriate technical and organisational protection measures, and those measures were applied to the personal data affected by the personal data breach, in particular those that render the personal data unintelligible to any person who is not authorised to access it, such as encryption; (b) the controller has taken subsequent measures which ensure that the high risk to the rights and freedoms of data subjects referred to in paragraph 1 is no longer likely to materialise; (c) it would involve disproportionate effort.",
+      "nli": {
+        "entailment": 0.0363,
+        "neutral": 0.6588,
+        "contradiction": 0.3049
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0344,
+      "contradiction_score": 0.2892
+    },
+    {
+      "retrieval_score": 0.8496,
+      "document": "gdpr.pdf",
+      "heading": "Article 40",
+      "title": "Article 40: Codes of conduct",
+      "chapter": "CHAPTER IV",
+      "section": "Section 5",
+      "page_start": 56,
+      "page_end": 58,
+      "segment_number": 2,
+      "text": "icles 24 and 25 and the measures to ensure security of processing referred to in Article 32; (i) the notification of personal data breaches to supervisory authorities and the communication of such personal data breaches to data subjects; (j) the transfer of personal data to third countries or international organisations; or (k) out-of-court proceedings and other dispute resolution procedures for resolving disputes between controllers and data subjects with regard to processing, without prejudice to the rights of data subjects pursuant to Articles 77 and 79. 3. In addition to adherence by controllers or processors subject to this Regulation, codes of conduct approved pursuant to paragraph 5 of this Article and having general validity pursuant to paragraph 9 of this Article may also be adhered to by controllers or processors that are not subject to this Regulation pursuant to Article 3 in order to provide appropriate safeguards within the framework of personal data transfers to third countries or international organisations under the terms referred to in point (e) of Article 46(2). Such controllers or processors shall make binding and enforceable commitments, via contractual or other legally binding instruments, to apply those appropriate safeguards including with regard to the rights of data subjects. 4.",
+      "nli": {
+        "entailment": 0.2008,
+        "neutral": 0.7481,
+        "contradiction": 0.0512
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.1902,
+      "contradiction_score": 0.0485
+    },
+    {
+      "retrieval_score": 0.8532,
+      "document": "gdpr.pdf",
+      "heading": "Article 12",
+      "title": "Article 12: Transparent information, communication and modalities for the exercise of the rights of the data",
+      "chapter": "CHAPTER III",
+      "section": "Section 1",
+      "page_start": 39,
+      "page_end": 40,
+      "segment_number": 2,
+      "text": "t. 3. The controller shall provide information on action taken on a request under Articles 15 to 22 to the data subject without undue delay and in any event within one month of receipt of the request. That period may be extended by two further months where necessary, taking into account the complexity and number of the requests. The controller shall inform the data subject of any such extension within one month of receipt of the request, together with the reasons for the delay. Where the data subject makes the request by electronic form means, the information shall be provided by electronic means where possible, unless otherwise requested by the data subject. 4. If the controller does not take action on the request of the data subject, the controller shall inform the data subject without delay and at the latest within one month of receipt of the request of the reasons for not taking action and on the possibility of lodging a complaint with a supervisory authority and seeking a judicial remedy. 5. Information provided under Articles 13 and 14 and any communication and any actions taken under Articles 15 to 22 and 34 shall be provided free of charge.",
+      "nli": {
+        "entailment": 0.0479,
+        "neutral": 0.8214,
+        "contradiction": 0.1307
+      },
+      "heuristics": {
+        "time_conflict": false,
+        "overbroad_claim": false,
+        "overbroad_conflict": false
+      },
+      "support_score": 0.0454,
+      "contradiction_score": 0.124
+    }
+  ],
+  "notice": "Automated evidence analysis. Not legal advice."
+}
